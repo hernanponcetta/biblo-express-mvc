@@ -1,0 +1,275 @@
+body {
+  margin: 0px;
+}
+
+.cart {
+  margin-bottom: 45px;
+}
+
+.container {
+  box-sizing: border-box;
+  font-family: "Cabin", sans-serif;
+  max-width: 360px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.item-detail {
+  box-sizing: border-box;
+  background-color: #d6ebe871;
+  padding: 15px;
+}
+
+.book-detail {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.book-detail img {
+  width: 80px;
+}
+
+.book-detail ul {
+  list-style: none;
+  margin-left: 0px;
+  padding: 0px;
+  margin-top: 3px;
+}
+
+.book-detail ul li {
+  margin: 0px;
+  padding: 0px;
+  font-size: 12px;
+}
+
+.book-title {
+  margin: 0px;
+  padding: 0px;
+}
+
+.book-detail h3 {
+  font-size: 16px;
+}
+
+.book-detail h4 {
+  font-size: 12px;
+  margin-top: 3px;
+  margin-bottom: 0px;
+}
+
+.data-container {
+  padding-left: 15px;
+}
+
+.item-check-detail-top {
+  display: flex;
+  margin-top: 25px;
+}
+
+.subtotal {
+  margin-left: 15px;
+}
+
+.item-check-detail-bottom div {
+  margin-bottom: 15px;
+}
+
+.quantity {
+  margin-bottom: 15px;
+}
+
+.shipping label {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.checkout {
+  padding: 15px;
+  box-sizing: border-box;
+}
+
+.cart-title {
+  padding-right: 15px;
+  padding-left: 15px;
+  box-sizing: border-box;
+}
+
+.shipping select {
+  color: #03665a;
+  font-weight: bold;
+  margin-top: 5px;
+  font-size: 15px;
+  padding: 15px;
+  width: 100%;
+  background-color: #d6ebe871;
+  border-radius: 5px;
+  border-color: #2bc0af7c;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.shipping select:active,
+select:hover {
+  outline-color: #03665a;
+}
+
+.quantity input {
+  margin-left: 5px;
+  color: #03665a;
+  font-weight: bold;
+  background-color: #d6ebe871;
+  border-radius: 5px;
+  border-color: #2bc0af7c;
+}
+
+.quantity input:active,
+input:hover {
+  outline-color: #03665a;
+}
+
+.summary-table {
+  width: 100%;
+}
+
+.th-left {
+  text-align: left;
+}
+
+.th-right {
+  text-align: right;
+}
+
+.summary {
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 35px;
+  padding-bottom: 20px;
+}
+
+.summary th {
+  font-weight: normal;
+  font-size: 15px;
+}
+
+.total {
+  display: block;
+  box-sizing: border-box;
+  margin-left: auto;
+  margin-right: auto;
+  padding-left: 35px;
+  padding-right: 35px;
+}
+
+.check-out-title {
+  margin-bottom: 15px;
+  border-bottom: solid 1px #00857650;
+}
+
+.summary {
+  margin-bottom: 15px;
+  border-bottom: solid 1px #00857650;
+}
+
+#quantity {
+  width: 40px;
+}
+
+.accept-button {
+  display: block;
+  width: 300px;
+  margin-left: auto;
+  margin-right: auto;
+  height: 45px;
+  font-size: larger;
+  font-family: "Cabin", sans-serif;
+  background-color: #45c5b6b0;
+  border: none;
+  border-radius: 5px;
+  outline: none;
+  margin-top: 20px;
+}
+
+.accept-button:hover {
+  background-color: #369489b0;
+  transition: 0.4s;
+}
+
+.item-check-detail-bottom {
+  color: #008575;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    box-sizing: border-box;
+    font-family: "Cabin", sans-serif;
+    max-width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .item-detail {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+  }
+
+  .item-check-detail-top {
+    margin-top: 5px;
+  }
+
+  .book-detail img {
+    width: 90px;
+  }
+
+  .accept-button {
+    width: 100%;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    box-sizing: border-box;
+    font-family: "Cabin", sans-serif;
+    max-width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .item-check-detail-top {
+    display: flex;
+    flex-flow: column;
+  }
+
+  .item-detail {
+    display: flex;
+    justify-content: left;
+    width: 70%;
+  }
+
+  .item-check-detail {
+    margin-left: 25px;
+  }
+
+  .subtotal {
+    margin-left: 0px;
+  }
+
+  .quantity {
+    margin-bottom: 5px;
+  }
+
+  .item-check-detail-top {
+    margin-bottom: 20px;
+  }
+
+  .cart {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .checkout {
+    width: 40%;
+    box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+  }
+}

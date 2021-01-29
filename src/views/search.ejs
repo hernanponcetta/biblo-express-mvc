@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblo</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="/logo/favicon.ico" />
+    <link href="/css/all.css" rel="stylesheet">
+</head>
+<body class="bg-biblogreen-100 font-roboto">
+    <% if(books.length > 0) { %>
+      <div class="mb-10">
+        <%- include('./partials/header') %>
+      </div>
+    <div class="lg:max-w-screen-xl lg:mx-auto px-5">
+      <h1 class="mb-4 text-gray-800 text-lg font-semibold tracking-wide px-3">Resultado de búsqueda</h1>
+    </div>
+      <div class="bg-white font-roboto mb-10 pb-3 pt-5 rounded-md shadow-md text-gray-800 lg:max-w-screen-xl lg:mx-auto lg:px- sm:px-5 overflow-x-hidden flex flex-wrap justify-around">
+      <% books.forEach(book => { %>
+        <a href="<%= "/products/" + book.id %> ">
+          <div class="w-40 px-3">
+              <div class="mb-6 h-item">
+                  <img src="<%= "/portadas/" + book.book_cover %>" alt="">
+              </div>
+              <div>
+                  <p class="font-roboto text-gray-800 text-sm leading-tight"><%= book.title %> </p>
+              </div>
+              <div>
+                <span class="font-roboto text-gray-600 text-xs"><%= book.autors.name %> </span>
+            </div>
+          </div>
+        </a>  
+      <% }); %>
+    </div>
+    <% } else { %>
+      <div class="h-screen -mb-56">
+        <div class="mb-10">
+          <%- include('./partials/header') %>
+        </div>
+        <div>
+            <div class="bg-white font-roboto mb-10 p-3 rounded-md shadow-md text-gray-800 lg:max-w-screen-lg lg:py-20 lg:mx-auto lg:px-16 sm:px-5">
+                <div class="text-biblogreen-400 text-6xl">
+                  <span class="mr-6">
+                    <i class="fas fa-exclamation"></i>
+                  </span>
+                    <span class="text-lg font-bold inline-block align-middle">No se encontraron coincidencias.</span>
+                </div>
+            </div>
+        </div>
+        </div>
+    <% } %>   
+    <%- include('./partials/footer') %>
+</body>
+</html>

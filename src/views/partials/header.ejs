@@ -1,0 +1,87 @@
+<header class="">
+    <div id="header_container" class="bg-white shadow-md rounded-b-md">
+    <div class="bg-white font-roboto px-3 pb-3 pt-2 lg:pt-5 text-gray-800 lg:mx-auto md:flex md:items-center justify-between sm:px-5">
+        <div class="md:flex md:items-center w-full">
+            <div class="flex justify-between">
+                <div class="py-3 mr-16 md:mr-10 lg:mx-10 lg:w-16 flex-none">
+                    <a href="/"> <img src="/logo/biblo_05.svg" class="w-16 md:w-20 lg:w-20" alt="Biblo Logo"></a>
+                </div>
+                <div class="flex md:hidden">
+                    <% if(Object.keys(user).length == 0) { %>
+                        <a href="/users/login" id="user_redirect" class="text-biblogreen-500 hover:text-biblogreen-700 text-2xl text-center">
+                            <div id="user_div">
+                                <i class="fas fa-user"></i>
+                                <span class="text-xs block hover:text-biblogreen-700">Ingresar</span>
+                            </div>
+                        </a>
+                    <% } else { %>
+                        <a href="/users/detail" id="user_redirect" class="text-biblogreen-500 hover:text-biblogreen-700 text-2xl text-center">
+                            <div id="user_div">
+                                <i class="fas fa-user"></i>
+                                <span class="text-xs block hover:text-biblogreen-700"><%= user.first_name %> </span>
+                            </div>
+                        </a>
+                    <% } %> 
+                    <div id="cart_div" class="relative w-15 pr-1">
+                        <a href="/cart" class="text-biblogreen-500 hover:text-biblogreen-700 text-2xl pl-5 lg:text-center">
+                            <i class="fas fa-shopping-cart"></i>
+                            <% if(items.length) { %>
+                                <span class="absolute bg-white box-border px-1 font-roboto rounded-full border-2 border-biblogreen-500 text-biblogreen-500 font-semibold text-xs right-0"><%= items.length %> </span>
+                            <% } %>  
+                        </a>
+                    </div>                
+                </div>
+            </div>
+            <div class="md:flex md:items-center md:w-full">
+                <form action="/products/search" class="order-last w-full md:mr-12 lg:mr-24">
+                    <div  class="flex items-center text-gray-800 text-sm form-input mx-auto border-biblogreen-200">
+                        <input type="text" name="search_field" placeholder="Buscar por título, autor, editorial, isbn, género" class=" text-gray-800 text-sm w-full mx-auto border-0 p-0 outline-none">
+                        <button type="submit" class="text-biblogreen-300 text-base border-l pl-3 hover:text-biblogreen-600 active:outline-none focus:outline-none">
+                            <i class="fas fa-search"></i>
+                        </button>
+                    </div>
+                </form>
+                <div class="text-center pt-3 flex md:pt-0 place-content-center md:mr-10 lg:mr-12">
+                    <div class="relative items-center">
+                        <a href="/products" id="genres_link" class="text-sm text-biblogreen-600 pr-3 border-biblogreen-300 hover:text-biblogreen-800 md:flex lg:pr-0 lg:mx-10">
+                            <span class="mr-2">Géneros</span>
+                            <span id="genres_arrow" class="inline-block transform duration-300"><i class="fas fa-chevron-down"></i></span>
+                        <a>
+                        <div id="genres_box" class="w-40 absolute z-50 text-left pl-4 bg-white shadow-md rounded-b-md py-4 hidden">
+                            <% genres.forEach(genre => { %>
+                               <a href="<%= "/" + genre.id %> " class="block text-sm text-biblogreen-600 pr-3 mb-1 hover:text-biblogreen-800"><%= genre.name %> </a> 
+                            <% }); %> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="hidden md:flex md:mx-0 lg:mx-10">
+            <% if(Object.keys(user).length == 0) { %>
+                <a href="/users/login" id="user_redirect" class="text-biblogreen-500 hover:text-biblogreen-700 text-2xl pr-5 border-r border-biblogreen-300 md:text-center">
+                    <div id="user_div">
+                        <i class="fas fa-user"></i>
+                        <span class="text-xs block hover:text-biblogreen-700">Ingresar</span>
+                    </div>
+                </a>
+            <% } else { %>
+                <a href="/users/detail" id="user_redirect" class="text-biblogreen-500 hover:text-biblogreen-700 text-2xl pr-5 border-r border-biblogreen-300 md:text-center">
+                    <div id="user_div">
+                        <i class="fas fa-user"></i>
+                        <span class="text-xs block hover:text-biblogreen-700"><%= user.first_name %> </span>
+                    </div>
+                </a>
+            <% } %> 
+            <div id="cart_div" class="relative w-15 pr-1">
+                <a href="/cart" class="text-biblogreen-500 hover:text-biblogreen-700 text-2xl pl-5 lg:text-center">
+                    <i class="fas fa-shopping-cart"></i>
+                    <% if(items.length) { %>
+                        <span class="absolute bg-white box-border px-1 font-roboto rounded-full border-2 border-biblogreen-500 text-biblogreen-500 font-semibold text-xs right-0"><%= items.length %> </span>
+                    <% } %>  
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="/scripts/HeaderScript.js"></script>
+</header>

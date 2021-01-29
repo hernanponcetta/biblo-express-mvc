@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Libro creado con éxito</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo/favicon.ico" />
+    <link href="/css/all.css" rel="stylesheet">
+</head>
+<body class="bg-biblogreen-100">
+    <div class="h-screen -mb-56">
+        <div class="mb-10">
+            <%- include('./partials/header') %>
+        </div>
+    <div>
+        <div class="bg-white font-roboto mb-10 p-3 rounded-md shadow-md text-gray-800 lg:max-w-screen-lg lg:py-20 lg:mx-auto lg:px-16 sm:px-5">
+            <div class="text-biblogreen-400 text-6xl">
+                <i class="fas fa-check-square"></i>
+                <span class="text-lg font-bold inline-block align-middle"><%= msg %> </span>
+            </div>
+        </div>
+    </div>
+    <script>
+        setTimeout(function(){
+          window.location.href = '/';
+        }, 3000);
+     </script>
+    </div>
+    <%- include('./partials/footer') %>
+</body>
+</html>

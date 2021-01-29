@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo/favicon.ico" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresá a BiBlo</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="/logo/favicon.ico" />
+    <link href="/css/all.css" rel="stylesheet">
+    <script src="/scripts/LoginScript.js" defer></script>
+</head>
+<body class="bg-biblogreen-100">
+    <div class="mb-10">
+        <%- include('./partials/header') %>
+    </div>
+    <div class="py-8 w-full font-roboto max-w-md md:px-4 mx-auto text-xs text-gray-800">
+        <form id="login_form" action="/users/login" method="POST" class="formulario" novalidate>
+            <div class="bg-white px-4 py-6 rounded-md shadow-md mb-4 hover:shadow-lg md:flex md:flex-col">
+                <div class="mb-8">
+                    <div class="mb-5">
+                        <label for="email" class="block  mb-2">E-mail</label>
+                        <% if(Object.keys(errors).length === 0) {%>
+                            <input id="email" type="email" name="email" value="<%= data.email %>" placeholder="e-mail" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                            <span id="email_error" class="text-xs text-red-600"></span>          
+                        <% } else {%>
+                            <% if("email" in errors) {%>
+                                <input id="email" type="email" name="email" placeholder="e-mail" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                <span id="email_error" class="text-xs text-red-600"> <%= errors.email.msg %>  </span>
+                            <% } else {%>
+                                <input id="email" type="email" name="email" value="<%= data.email %>" placeholder="e-mail" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                <span id="email_error" class="text-xs text-red-600"></span>
+                            <% } %>   
+                        <% } %>  
+                    </div>
+                    <div class="mb-5">
+                        <label for="password" class="block  mb-2">Contraseña</label>
+                        <% if(Object.keys(errors).length === 0) {%>
+                            <input id="password" type="password" name="password" value="<%= data.password %>" placeholder="Contraseña" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                            <span id="password_error" class="text-xs text-red-600"></span>          
+                        <% } else {%>
+                            <% if("password" in errors) {%>
+                                <input id="password" type="password" name="password" placeholder="Contraseña" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                <span id="password_error" class="text-xs text-red-600"> <%= errors.password.msg %>  </span>
+                            <% } else {%>
+                                <input id="password" type="password" name="password" value="<%= data.password %>" placeholder="Contraseña" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                <span id="password_error" class="text-xs text-red-600"></span>
+                            <% } %>   
+                        <% } %>  
+                    </div>
+                </div>
+                <div class="flex items-center mb-5">
+                    <input type="checkbox" name="rememberme" class="form-checkbox text-biblogreen-500 w-5 h-5 mr-2 focus:shadow-biblofocus focus:border-biblogreen-300">
+                    <span class="align-middle">Recordarme</span>
+                </div>
+                <div class="mb-6">
+                    <button id="submit_button" type="submit" class="block text-sm text-gray-800 form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300 hover:bg-biblogreen-100 tracking-widest focus:outline-none  focus:bg-biblogreen-200">INGRESAR</button>
+                </div> 
+                <div class="text-center">
+                    <a href="/users/create" class="text-xs text-biblogreen-600 pl-3 hover:text-biblogreen-800">Registrarme</a>
+                </div>
+                </div>
+            </div>
+        </form>
+    </div>
+    <%- include('./partials/footer') %> 
+</body>
+</html>

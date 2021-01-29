@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><%= book.title %> | <%= book.autor %>  </title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="/logo/favicon.ico" />
+    <link href="/css/all.css" rel="stylesheet">
+    <script src="/scripts/ProductScript.js"></script>
+</head>
+<body class="bg-biblogreen-100 relative" >
+    <div class="mb-10">
+        <%- include('./partials/header') %>
+    </div>
+    <div class="bg-white font-roboto mb-10 p-3 rounded-md shadow-md text-gray-800 lg:max-w-screen-lg lg:mx-auto lg:px-16 sm:px-5">
+        <div class="mb-6">
+            <span class="block text-gray-600 text-sm"><%= book.autors.name %> </span>
+            <h1 class="text-xl font-bold tracking-wide text-gray-800"><%= book.title %></h1>
+        </div>
+        <div class="md:flex">
+            <div class="mb-6 md:mr-8 lg:mr-10">
+                <img src="/portadas/<%= book.book_cover %>" class="object-contain w-32 sm:w-40 lg:w-48 mx-auto" alt="Portada <%= book.title %> ">
+            </div>
+            <div>
+                <div class="align-text-top mb-2">
+                    <span class="text-3xl tracking-tighter font-light mr-1">$</span><span class="text-3xl tracking-tighter font-light"><%= book.price %> </span><span class="align-top text-sm font-normal">00</span>
+                </div>
+                <div class="mb-4">
+                    <span class="text-xl font-medium text-biblogreen-700"><%= book.states.name %> </span>
+                </div>
+                <form id="product_form" action="/cart" method="POST" id="buy_form">
+                    <input type="text" class="hidden" name="book_id" value="<%= book.id %> ">
+                    <div class="mb-3">
+                        <label for="quantity" class="block text-gray-800 mb-2">Cantidad</label>
+                        <input id="quantity" type="number" name="quantity" id="cantidad" value="1" class="block text-gray-800 text-sm form-input w-1/4 lg:w-1/2 border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                    </div>
+                    <div class="flex mb-6 md:flex-col">
+                        <button id="add_button" type="submit" formaction="/cart?_method=PUT" class="block whitespace-no-wrap text-xs py-4 font-bold text-gray-800 form-input w-1/2 md:w-auto border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300 hover:bg-biblogreen-100 focus:outline-none  focus:bg-biblogreen-200 mr-1 md:mr-0 md:mb-3">AGREGAR AL CARRITO</button>
+                        <button id="buy_button" type="submit" class="block whitespace-no-wrap text-xs py-4 font-bold text-gray-800 form-input w-1/2 md:w-auto border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300 hover:bg-biblogreen-100 focus:outline-none  focus:bg-biblogreen-200 ml-1 md:ml-0">COMPRAR AHORA</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <div class="mb-6">
+            <h3 class="font-semibold mb-2 tracking-wide">Sinopsis</h3>
+            <p class="text-sm font-medium"><%= book.sinopsis %></p>
+        </div>
+        <div class="mb-6">
+            <h3 class="font-semibold mb-2 tracking-wide">Información del producto</h3>
+            <table class="text-left text-sm w-full">
+                <tr class="border-b border-t border-biblogreen-200">
+                    <th class="px-2 py-3 bg-biblogreen-100">Título</th>
+                    <td class="px-2 py-3"><%= book.title %></td>
+                </tr>
+                <tr class=" border-b border-biblogreen-200">
+                    <th class="px-2 py-3 bg-biblogreen-100">Autor</th>
+                    <td class="px-2 py-3"><%= book.autors.name %></td>
+                </tr>
+                <tr class="border-b border-biblogreen-200">
+                    <th class="px-2 py-3 bg-biblogreen-100">Género</th>
+                    <td class="px-2 py-3"><%= book.genres.name %></td>
+                </tr>
+                <tr class="border-b border-biblogreen-200">
+                    <th class="px-2 py-3 bg-biblogreen-100">Editorial</th>
+                    <td class="px-2 py-3"><%= book.houses.name %></td>
+                </tr>
+                <tr class="border-b border-biblogreen-200">
+                    <th class="px-2 py-3 bg-biblogreen-100">ISBN</th>
+                    <td class="px-2 py-3"><%= book.isbn %></td>
+                </tr>
+                <tr class="border-b border-biblogreen-200">
+                    <th class="px-2 py-3 bg-biblogreen-100">Estado</th>
+                    <td class="px-2 py-3"><%= book.states.name %></td>
+                </tr>
+            </table>
+        </div>
+    </div>
+    <div class="bg-white font-roboto rounded-md shadow-md px-3 py-5 mb-10 text-gray-800 lg:max-w-screen-lg lg:mx-auto lg:px-16 sm:px-5">
+        <h3 class="font-semibold mb-2 tracking-wide"><%= book.autors.name %> </h3>
+        <div class="md:flex">
+            <img class="rounded-full mb-auto w-32 lg:w-40 md:mr-8 lg:mr-10" src="/fotos_autores/<%= book.autors.autor_photo %>" alt="Foto <%= book.autor %> ">
+            <p class="text-sm pt-3"><%= book.autors.bio %> </p>
+        </div>
+    </div>
+    <%- include('./partials/footer') %>
+</body>
+</html>

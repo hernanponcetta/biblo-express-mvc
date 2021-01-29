@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BiBlo | Nuevo usuario</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="/logo/favicon.ico" />
+    <link href="/css/all.css" rel="stylesheet">
+    <script src="/scripts/UserCreate.js" defer></script>
+</head>
+<body class="bg-biblogreen-100">
+    <div class="mb-10">
+        <%- include('./partials/header') %>
+    </div>
+        <div class=" py-8 w-full font-roboto max-w-md md:max-w-screen-md mx-auto text-xs">
+            <form action="/users/create" method="POST" id="user_form" enctype="multipart/form-data" class="formulario" novalidate>    
+                <div class="bg-white px-4 py-6 rounded-md shadow-md mb-4 hover:shadow-lg md:flex md:flex-col">
+                    <div class="md:flex">
+                        <div id="first_name_div" class="mb-5 md:w-1/2 md:mr-3">
+                            <label for="first_name" class="block text-gray-800 mb-2">Nombre</label>
+                            <% if(Object.keys(errors).length === 0) { %>
+                            <input id="first_name" type="text" name="first_name" value="<%= data.first_name %>" placeholder="Nombre" class="block text-sm text-gray-800 form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                            <span id="first_name_error" class="text-xs text-red-600"></span>
+                        <% } else { %>
+                            <% if('first_name' in errors) { %>
+                                <input id="first_name" type="text" name="first_name" placeholder="Nombre" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                <span id="first_name_error" class="text-xs text-red-600"> <%= errors.first_name.msg %>  </span>         
+                            <% } else { %>
+                                <input id="first_name" type="text" name="first_name" value="<%= data.first_name %>"  placeholder="Nombre" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                <span id="first_name_error" class="text-xs text-red-600"></span>
+                            <% } %>
+                        <% } %>
+                        </div>
+                        <div class="mb-5 md:w-1/2 md:ml-3">
+                            <label for="last_name" class="block text-gray-800 mb-2">Apellido</label>
+                            <% if(Object.keys(errors).length === 0) { %>
+                            <input id="last_name" type="text" name="last_name" value="<%= data.last_name %>" placeholder="Nombre" class="block text-sm text-gray-800 form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                            <span id="last_name_error" class="text-xs text-red-600"></span>
+                        <% } else { %>
+                            <% if('last_name' in errors) { %>
+                                <input id="last_name" type="text" name="last_name" placeholder="Nombre" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                <span id="last_name_error" class="text-xs text-red-600"> <%= errors.last_name.msg %>  </span>         
+                            <% } else { %>
+                                <input id="last_name" type="text" name="last_name" value="<%= data.last_name %>"  placeholder="Nombre" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                <span id="last_name_error" class="text-xs text-red-600"></span>
+                            <% } %>
+                        <% } %>  
+                        </div>
+                    </div>
+                    <div class="md:flex">
+                        <div class="mb-5 md:w-1/2 md:mr-3">
+                            <label for="dni" class="block text-gray-800 mb-2">DNI</label>
+                            <% if(Object.keys(errors).length === 0) { %>
+                                <input id="dni" type="number" name="dni" value="<%= data.dni %>" min="00000000" max="99999999" placeholder="DNI" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300" >
+                                <span id="dni_error" class="text-xs text-red-600"></span>
+                            <% } else { %>
+                                <% if("dni" in errors) { %>
+                                    <input id="dni" type="number" name="dni" min="00000000" max="99999999" placeholder="DNI" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300" >
+                                    <span id="dni_error" class="text-xs text-red-600"> <%= errors.dni.msg %>  </span>        
+                                <% } else { %>
+                                    <input id="dni" type="number" name="dni" value="<%= data.dni %>" min="00000000" max="99999999" placeholder="DNI" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                    <span id="dni_error" class="text-xs text-red-600"></span>
+                                <% } %>
+                            <% } %> 
+                        </div>
+                        <div class="mb-5 md:w-1/2 md:ml-3">
+                            <label for="birth" class="block text-gray-800 mb-2">Fecha de nacimiento</label>
+                            <% if(Object.keys(errors).length === 0) { %>
+                                <input id="birth" type="date" name="birth" placeholder="Fecha de nacimiento" class="form-input block text-gray-800 text-sm w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                <span id="birth_error" class="text-xs text-red-600"></span>
+                            <% } else { %>
+                                <% if("birth" in errors) { %>
+                                    <input id="birth" type="date" name="birth" placeholder="Fecha de nacimiento" class="form-input text-gray-800 text-sm block w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                    <span id="birth_error" class="text-xs text-red-600"> <%= errors.birth.msg %>  </span> 
+                                <% } else { %>
+                                    <input id="birth" type="date" name="birth" value="<%= data.birth %>" placeholder="Fecha de nacimiento" class="form-input text-gray-800 text-sm block w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                    <span id="birth_error" class="text-xs text-red-600"></span> 
+                                <% } %> 
+                            <% } %>     
+                        </div>
+                    </div>
+                    <div class="md:flex">
+                        <div class="mb-5 md:w-1/2 md:mr-3">
+                            <label for="address" class="block text-gray-800 mb-2">Dirección</label>
+                            <% if(Object.keys(errors).length === 0) { %>
+                                <input id="address" type="text" name="address" value="<%= data.address %>" placeholder="Dirección" class="block text-sm text-gray-800 form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                <span id="address_error" class="text-xs text-red-600"></span>
+                            <% } else { %>
+                                <% if("address" in errors) { %>
+                                    <input id="address" type="text" name="address" placeholder="Dirección" class="block form-input text-gray-800 text-sm w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                    <span id="address_error" class="text-xs text-red-600"> <%= errors.address.msg %>  </span>
+                                <% } else { %>
+                                    <input id="address" type="text" name="address" value="<%= data.address %>"  placeholder="Dirección" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                    <span id="address_error" class="text-xs text-red-600"></span>
+                                <% } %>
+                            <% } %>   
+                        </div>
+                        <div class="mb-5 md:w-1/2 md:ml-3">
+                            <label for="cp" class="block text-gray-800 mb-2">Código postal</label>
+                            <% if(Object.keys(errors).length === 0) { %>
+                                <input id="cp" type="text" name="cp" value="<%= data.cp %>"  placeholder="Código postal" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                <span id="cp_error" class="text-xs text-red-600"></span>
+                            <% } else { %>
+                                <% if("cp" in errors) { %>
+                                    <input id="cp" type="text" name="cp" placeholder="Código postal" class="form-input text-sm text-gray-800 block w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                    <span id="cp_error" class="text-xs text-red-600"> <%= errors.cp.msg %>  </span>
+                                <% } else { %>
+                                    <input id="cp" type="text" name="cp" value="<%= data.cp %>"  placeholder="Código postal" class="form-input text-gray-800 text-sm block w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                    <span id="cp_error" class="text-xs text-red-600"></span>
+                                <% } %>  
+                            <% } %>   
+                        </div>
+                    </div>
+                    <div class="md:flex">
+                        <div class="mb-5 md:w-1/2 md:mr-3">
+                            <label for="email" class="block text-gray-800 mb-2">Correo electrónico</label>
+                            <% if(Object.keys(errors).length === 0) { %>
+                                <input id="email" type="email" name="email" value="<%= data.email %>" placeholder="Correo electronico" class="block text-sm text-gray-800 form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                <span id="email_error" class="text-xs text-red-600"></span>
+                            <% } else { %>
+                                <% if("email" in errors) { %>
+                                    <input id="email" type="email" name="email" placeholder="Correo electronico" class="block text-sm text-gray-800 form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                    <span id="email_error" class="text-xs text-red-600"> <%= errors.email.msg %>  </span>
+                                <% } else { %>
+                                    <input id="email" type="email" name="email" value="<%= data.email %>" placeholder="Correo electronico" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                    <span id="email_error" class="text-xs text-red-600"></span>
+                                <% } %>   
+                            <% } %>   
+                        </div>
+                        <div class="mb-5 md:w-1/2 md:ml-3">
+                        </div>
+                    </div>
+                <div class="md:flex">
+                    <div class="mb-5 md:w-1/2 md:mr-3">
+                        <label for="password" class="block text-gray-800 mb-2">Contraseña</label>
+                        <% if(Object.keys(errors).legth ===0) { %>
+                            <input id="password" type="password" name="password" value="<%= data.password %>" placeholder="Contraseña" class="block text-sm text-gray-800 form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                            <span id="password_error" class="text-xs text-red-600"></span>
+                        <% } else { %>
+                            <% if("password" in errors) { %>
+                                <input id="password" type="password" name="password" placeholder="Contraseña" class="block text-sm text-gray-800 form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                <span id="password_error" class="text-xs text-red-600"> <%= errors.password.msg %>  </span>
+                            <%} else { %>
+                                <input id="password" type="password" name="password" value="<%= data.password %>" placeholder="Contraseña" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                <span id="password_error" class="text-xs text-red-600"></span>
+                            <% } %>
+                        <% } %>
+                        <span id="password_error" class="text-xs text-red-600"></span>   
+                    </div>
+                    <div class="mb-5 md:w-1/2 md:ml-3">
+                        <label for="password_check" class="block text-gray-800 mb-2">Repetir contraseña</label>
+                        <% if(Object.keys(errors).legth === 0) { %>
+                            <input id="password_check" type="password" name="password_check" value="<%= data.password_check %>" placeholder="Repetir contraseña" class="block text-sm text-gray-800 form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                            <span id="password_check_error" class="text-xs text-red-600"></span>
+                        <% } else { %>
+                            <% if("password_check" in errors) { %>
+                                <input id="password_check" type="password" name="password_check" placeholder="Repetir contraseña" class="block text-sm text-gray-800 form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                <span id="password_check_error" class="text-xs text-red-600"> <%= errors.password_check.msg %>  </span>
+                            <%} else { %>
+                                <input id="password_check" type="password" name="password_check" value="<%= data.password_check %>" placeholder="Repetir contraseña" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                <span id="password_check_error" class="text-xs text-red-600"></span>
+                            <% } %>
+                        <% } %>   
+                    </div>
+                    </div>
+                    <div class="sm:flex">
+                        <div class="mb-4 w-full rounded-md">
+                            <label for="user_photo" class="cursor-pointer text-center  block form-input border-biblogreen-300 border-dashed py-4 box-border tracking-wide rounded-md hover:bg-biblogreen-100 duration-300">
+                                <span class="text-biblogreen-700 text-3xl hover:text-biblogreen-800 block">
+                                    <i class="fas fa-cloud-upload-alt"></i>
+                                </span>
+                                <span class=" text-biblogreen-700 font-medium hover:text-biblogreen-800 text-opacity-75 text-xs">Foto de usuario<span>
+                                <input id="user_photo" type="file" name="portada" class="hidden">
+                            </label>
+                        </div>
+                    </div>
+                    <div>
+                        <button id="submit_button" type="submit" class="block text-sm text-gray-800 form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300 hover:bg-biblogreen-100 tracking-widest focus:outline-none  focus:bg-biblogreen-200">GUARDAR</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+        <%- include('./partials/footer') %>    
+    </body>
+    </html>

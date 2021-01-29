@@ -1,0 +1,130 @@
+footer {
+  font-family: "Cabin", sans-serif;
+  background-color: #008575;
+  color: white;
+  box-sizing: border-box;
+}
+
+.footer-site-map ul {
+  list-style: none;
+  margin-left: 0px;
+  padding-left: 0px;
+}
+
+.footer-site-map li {
+  margin-bottom: 5px;
+}
+
+.footer-site-map li:hover {
+  text-decoration: underline;
+}
+
+.footer-site-map a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer-site-map div {
+  margin-bottom: 15px;
+}
+
+.footer-social {
+  margin-bottom: 30px;
+}
+
+.footer-social div {
+  display: flex;
+  justify-content: space-between;
+}
+
+.footer-social div a {
+  color: white;
+  font-size: 30px;
+  margin-right: 40px;
+}
+
+.links {
+  font-size: 16px;
+}
+
+.footer-container {
+  padding: 15px;
+}
+
+@media screen and (min-width: 768px) {
+  .footer-container {
+    display: block;
+    box-sizing: border-box;
+    width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-site-map {
+    display: flex;
+    justify-content: space-around;
+  }
+
+  .footer-social {
+    display: flex;
+    flex-flow: column;
+    margin-bottom: 60px;
+  }
+
+  .footer-social h3 {
+    align-self: center;
+  }
+
+  .footer-bottom {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 30px;
+  }
+
+  .footer-social div {
+    display: flex;
+    justify-content: center;
+  }
+  .footer-social a {
+    margin-left: 20px;
+    margin-right: 20px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .footer-container {
+    display: block;
+    width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+
+  .footer-upper {
+    display: flex;
+  }
+
+  .links {
+    margin-right: 85px;
+  }
+
+  .footer-social {
+    justify-content: flex-start;
+    border-left: solid #51d6c780 1px;
+    padding-left: 30px;
+  }
+
+  .footer-social h3 {
+    align-self: flex-start;
+  }
+
+  .footer-social div a {
+    margin-right: 30px;
+    margin-left: 0px;
+  }
+
+  .footer-bottom {
+    justify-content: flex-start;
+    border-top: solid 1px #51d6c780;
+    padding-top: 20px;
+  }
+}

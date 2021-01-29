@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biblo | Nuevo libro</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="/logo/favicon.ico" />
+    <link href="/css/all.css" rel="stylesheet">
+    <script src="/scripts/ProductCreate.js" defer></script>
+</head>
+<body class="bg-biblogreen-100">
+    <div class="mb-10">
+        <%- include('./partials/header') %>
+    </div>
+        <div class="py-8 w-full font-roboto max-w-md md:max-w-screen-md mx-auto text-xs text-gray-800">
+            <form action="/products/<%= data.id %>?_method=PUT" method="POST" id="product_form" novalidate enctype="multipart/form-data" class="formulario">
+                <div class="bg-white px-4 py-6 rounded-md shadow-md mb-4 hover:shadow-lg md:flex md:flex-col">
+                    <div class="md:flex">
+                        <div class="mb-5 md:w-1/2 md:mr-3">
+                            <label for="title" class="block  mb-2">Título</label>
+                            <% if(Object.keys(errors).length === 0) {%>
+                                <input id="title" type="text" name="title" value="<%= data.title %>" placeholder="Título" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                <span id="title_error" class="text-xs text-red-600"></span>          
+                            <% } else {%>
+                                <% if("title" in errors) {%>
+                                    <input id="title" type="text" name="title" placeholder="Título" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                    <span id="title_error" class="text-xs text-red-600"> <%= errors.title.msg %>  </span>
+                                <% } else {%>
+                                    <input id="title" type="text" name="title" value="<%= data.title %>" placeholder="Título" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                    <span id="title_error" class="text-xs text-red-600"></span>
+                                <% } %>   
+                            <% } %>  
+                        </div>
+                        <div class="mb-5 md:w-1/2 md:ml-3">
+                            <label for="autor_id" class="block mb-2">Autor</label>
+                            <select name="autor_id" id="autor_id"  class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                <% autors.forEach(autor => { %>
+                                    <% if(autor.id == data.autor_id) {%>
+                                        <option value="<%= autor.id %>" selected><%= autor.name %> </option> 
+                                    <% } else {%>
+                                        <option value="<%= autor.id %>"><%= autor.name %> </option>
+                                    <% } %>   
+                                <% }); %>   
+                            </select>  
+                        </div>
+                    </div>
+                    <div class="md:flex">
+                        <div class="mb-5 md:w-1/2 md:mr-3">
+                            <label for="house_id" class="block mb-2">Editorial</label>
+                            <select name="house_id" id="house_id" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                <% houses.forEach(house => { %>
+                                    <% if(house.id == data.house_id) {%>
+                                        <option value="<%= house.id %>" selected><%= house.name %> </option>
+                                    <% } else {%>
+                                        <option value="<%= house.id %>"><%= house.name %> </option>
+                                    <% } %>    
+                                <% }); %>   
+                            </select>
+                        </div>
+                        <div class="mb-5 md:w-1/2 md:ml-3">
+                            <label for="genre_id" class="block mb-2">Género</label>
+                            <select name="genre_id" id="genre_id" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                            <% genres.forEach(genre => { %>
+                                <% if(genre.id == data.genre_id) {%>
+                                    <option value="<%= genre.id %>" selected><%= genre.name %> </option>
+                                <% } else { %>
+                                    <option value="<%= genre.id %>"><%= genre.name %> </option>
+                                <% } %>   
+                            <% }); %> 
+                            </select> 
+                        </div>
+                    </div>
+                    <div class="md:flex">
+                        <div class="mb-5 md:w-1/2 md:mr-3">
+                            <label for="isbn" class="block mb-2">ISBN</label>
+                            <% if(Object.keys(errors).length === 0) { %>
+                                <input id="isbn" type="number" name="isbn" value="<%=data.isbn%>" min="0000000000" max="9999999999999" placeholder="ISBN" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                <span id="isbn_error" class="text-xs text-red-600"></span>
+                            <% } else { %>
+                                <% if("isbn" in errors) { %>
+                                    <input id="isbn" type="number" name="isbn" min="0000000000" max="9999999999999" placeholder="ISBN" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                    <span id="isbn_error" class="text-xs text-red-600"> <%= errors.isbn.msg %>  </span>
+                                <% } else { %>
+                                    <input id="isbn" type="number" name="isbn" value="<%=data.isbn%>" min="0000000000" max="9999999999999" placeholder="ISBN" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                    <span id="isbn_error" class="text-xs text-red-600"></span>
+                                <% } %>  
+                            <% } %>   
+                        </div>
+                        <div class="mb-5 md:w-1/2 md:ml-3">
+                            <label for="price" class="block mb-2">Precio</label>
+                            <% if(Object.keys(errors).length == 0) {%>
+                            <input id="price" type="number" name="price" value="<%=data.price%>" min="0.01" step="0.01" placeholder="Precio" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                            <span id="price_error" class="text-xs text-red-600"></span>
+                            <% } else {%>
+                                <% if("price" in errors) { %>
+                                    <input id="price" type="number" name="price" min="0.01" step="0.01" placeholder="Precio" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                    <span id="price_error" class="text-xs text-red-600"> <%= errors.price.msg %> </span>
+                                <% } else { %>
+                                    <input id="price" type="number" name="price" value="<%=data.price%>" min="0.01" step="0.01" placeholder="Precio" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                    <span id="price_error" class="text-xs text-red-600"></span>
+                                <% } %>     
+                            <% } %>
+                        </div>
+                    </div>
+                    <div class="md:flex">
+                        <div class="mb-5 md:w-1/2 md:mr-3">
+                            <label for="state_id" class="block mb-2">Estado</label>
+                            <select name="state_id" id="state_id" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                <% states.forEach(state => { %>
+                                    <% if(state.id == data.state_id) {%>
+                                        <option value="<%= state.id %>" selected><%= state.name %> </option>
+                                    <% }else{ %>
+                                        <option value="<%= state.id %>"><%= state.name %> </option>
+                                    <% } %>    
+                                <% }); %>   
+                            </select> 
+                        </div>
+                        <div class="mb-5 md:w-1/2 md:ml-3">
+                            <label for="amount" class="block mb-2">Cantidad</label>
+                            <% if(Object.keys(errors).length === 0) {%>
+                                <input id="amount" type="number" value="<%= data.amount %>" name="amount" min="0" step="1" placeholder="Cantidad" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                <span id="amount_error" class="text-xs text-red-600"></span> 
+                        <% } else {%>
+                                <% if("amount" in errors) { %>
+                                    <input id="amount" type="number" name="amount" min="0" step="1" placeholder="Cantidad" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                    <span id="amount_error" class="text-xs text-red-600"> <%= errors.amount.msg %> </span>
+                                <% } else {%>
+                                    <input id="amount" type="number" value="<%= data.amount %>" name="amount" min="0" step="1" placeholder="Cantidad" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300">
+                                    <span id="amount_error" class="text-xs text-red-600"></span>
+                                <% } %>   
+                            <% } %> 
+                        </div>
+                    </div>
+                    <div class="mb-6">
+                        <label for="sinopsis" class="block mb-2">Sinopsis</label>
+                        <% if(Object.keys(errors).length === 0) {%>
+                            <textarea name="sinopsis" id="sinopsis" cols="20" rows="6" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300"><%= data.sinopsis %></textarea>
+                            <span id="sinopsis_error" class="text-xs text-red-600"></span>
+                        <% } else { %>
+                            <% if("sinopsis" in errors) { %>
+                                <textarea name="sinopsis" id="sinopsis" cols="20" rows="6" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300"></textarea>
+                                <span id="sinopsis_error" class="text-xs text-red-600"> <%= errors.sinopsis.msg %> </span>    
+                                <% } else { %>
+                                    <textarea name="sinopsis" id="sinopsis" cols="20" rows="6" class="block text-gray-800 text-sm form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300"><%=data.sinopsis%></textarea>
+                                    <span id="sinopsis_error" class="text-xs text-red-600"></span>
+                                <% } %>
+                        <% } %>    
+                        </div>
+                        <div class="sm:flex">
+                            <div class="mb-4 w-full rounded-md">
+                                <label for="portada" class="cursor-pointer text-center  block form-input border-biblogreen-300 border-dashed py-4 box-border tracking-wide rounded-md hover:bg-biblogreen-100 duration-300">
+                                    <span class="text-biblogreen-700 text-3xl hover:text-biblogreen-800 block">
+                                        <i class="fas fa-cloud-upload-alt"></i>
+                                    </span>
+                                    <span class=" text-biblogreen-700 font-medium hover:text-biblogreen-800 text-opacity-75 text-xs">Portada del libro<span>
+                                    <input id="portada" value="<%= data.book_cover %> " type="file" name="portada" class="hidden">
+                                </label>
+                            </div>
+                        </div>
+                        <div>
+                            <button id="submit_button" type="submit" class="block text-sm text-gray-800 form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300 hover:bg-biblogreen-100 tracking-widest focus:outline-none  focus:bg-biblogreen-200">GUARDAR</button>
+                        </div> 
+                    </div>
+                    </form>
+                    </div>
+                    <%- include('./partials/footer') %> 
+                    <script src="/js/register.js"></script>   
+                </body>
+                </html>

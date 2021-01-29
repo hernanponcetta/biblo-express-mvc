@@ -1,0 +1,107 @@
+body {
+  margin: 0px;
+}
+
+h2 {
+  font-family: "Cabin", sans-serif;
+  text-align: center;
+  font-weight: lighter;
+}
+
+.container {
+  background-color: #d6ebe871;
+  font-family: "Cabin", sans-serif;
+  box-sizing: border-box;
+  padding: 15px;
+}
+
+.index__slide {
+  display: none;
+}
+
+.index__categorias {
+  display: flex;
+  flex-direction: column;
+}
+
+.index__categoria {
+  margin: 20px;
+}
+
+.index__producto {
+  width: 60%;
+  height: 40vh;
+  margin-top: 20px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #008575;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+.index__product__image {
+  height: 100%;
+  width: 100%;
+  object-fit: fill;
+  object-position: center center;
+}
+
+.index__precio {
+  width: 60%;
+  height: 10vh;
+  margin-top: 5px;
+  border: 1px;
+  border-radius: 8px;
+  margin-left: auto;
+  margin-right: auto;
+  background-color: #2e6b6462;
+  text-align: center;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.19), 0 6px 6px rgba(0, 0, 0, 0.23);
+}
+
+@media (min-width: 768px) {
+  .index__categoria {
+    display: flex;
+    position: relative;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+  }
+
+  .index__cajaprod {
+    width: 40%;
+  }
+
+  .index__producto {
+    width: 70%;
+  }
+
+  .index__precio {
+    width: 70%;
+  }
+}
+
+@media (min-width: 1024px) {
+  .index__slide {
+    display: flex;
+    position: relative;
+    margin: auto;
+    width: 90%;
+    height: 30vh;
+    object-fit: cover;
+  }
+
+  .index__cajaprod {
+    width: 25%;
+  }
+
+  .index__producto {
+    cursor: pointer;
+  }
+
+  .index__producto:hover {
+    transition: 0.5s;
+    width: 300px;
+    border-radius: 10px;
+    opacity: 0.4;
+  }
+}

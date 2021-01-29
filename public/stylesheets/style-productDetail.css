@@ -1,0 +1,258 @@
+body {
+  margin: 0px;
+}
+
+.container {
+  background-color: #d6ebe871;
+  font-family: "Cabin", sans-serif;
+  box-sizing: border-box;
+  padding: 15px;
+}
+
+.book-title {
+  margin-bottom: 0px;
+  box-sizing: border-box;
+}
+
+.book-author {
+  margin-top: 5px;
+  margin-bottom: 40px;
+}
+
+.book-cover {
+  width: 250px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.data-sheet {
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  display: none;
+  color: #008575;
+}
+
+.checkout-title {
+  padding-top: 20px;
+  box-sizing: border-box;
+  text-align: center;
+}
+
+.checkout-price {
+  display: block;
+  text-align: center;
+}
+
+.button-container {
+  margin-left: auto;
+  margin-right: auto;
+  margin-top: 30px;
+  margin-bottom: 40px;
+  text-align: center;
+  display: flex;
+  justify-content: center;
+}
+
+.checkout-button {
+  background-color: #00857662;
+  width: 250px;
+  box-sizing: border-box;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  text-decoration: none;
+  color: black;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+}
+
+.checkout-button:hover {
+  text-decoration: underline;
+}
+
+.data-sheet-mobile {
+  font-size: 15px;
+  list-style: none;
+  margin: 0px;
+  padding: 0px;
+  color: #008575;
+}
+
+.cover-container {
+  display: none;
+}
+
+.social-icons {
+  color: #008575;
+  font-size: 30px;
+  margin-right: 20px;
+}
+
+.sinopsis-p-container {
+  margin-bottom: 40px;
+}
+
+.secction-2-right {
+  background-color: white;
+  box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
+  border-radius: 5px;
+  margin: auto;
+  width: 250px;
+}
+
+.data-tip {
+  color: black;
+}
+
+.author-photo img {
+  width: 175px;
+  padding: 25px;
+  border-radius: 50%;
+  box-sizing: border-box;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.biography-article {
+  font-family: "Cabin", sans-serif;
+}
+
+.container-biography {
+  background-color: #d6ebe871;
+  padding: 10px;
+}
+
+.biography {
+  background-color: white;
+  padding: 10px;
+}
+
+@media screen and (min-width: 768px) {
+  .container {
+    display: block;
+    box-sizing: border-box;
+    width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+  }
+  .main-book {
+    display: flex;
+  }
+
+  .cover-container-mobile {
+    display: none;
+  }
+
+  .section-1 {
+    order: 1;
+  }
+
+  .section-2 {
+    order: 2;
+    padding-left: 20px;
+    display: flex;
+    flex-flow: column;
+  }
+
+  .cover-container {
+    display: block;
+  }
+
+  .book-cover {
+    width: 200px;
+  }
+
+  .container {
+    box-sizing: border-box;
+    padding: 30px;
+  }
+
+  .data-sheet-mobile {
+    display: none;
+  }
+
+  .data-sheet {
+    display: block;
+  }
+
+  .secction-2-right {
+    margin: 0px;
+    box-sizing: border-box;
+    display: flex;
+    flex-flow: column;
+    width: 250px;
+  }
+
+  .section-2-top {
+    display: flex;
+    flex-flow: row;
+    justify-content: space-between;
+  }
+
+  .checkout-button {
+    width: 150px;
+  }
+
+  .biography {
+    background-color: white;
+    display: flex;
+    padding: 30px;
+  }
+
+  .container-biography {
+    display: block;
+    box-sizing: border-box;
+    width: 768px;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 30px;
+  }
+}
+
+@media screen and (min-width: 1024px) {
+  .container {
+    display: block;
+    box-sizing: border-box;
+    width: 1024px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+  }
+
+  .secction-2-right {
+    width: 250px;
+    box-sizing: border-box;
+  }
+
+  .book-cover {
+    margin: 0px;
+  }
+
+  .container-biography {
+    width: 1024px;
+    background-color: #d6ebe871;
+    margin-left: auto;
+    margin-right: auto;
+    margin-bottom: 40px;
+    padding: 35px;
+    box-sizing: border-box;
+  }
+
+  .biography {
+    background-color: white;
+    display: flex;
+  }
+
+  .biography-article {
+    font-family: "Cabin", sans-serif;
+    padding-left: 30px;
+  }
+
+  .author-photo img {
+    width: 175px;
+    padding: 25px;
+    border-radius: 50%;
+    box-sizing: border-box;
+  }
+}

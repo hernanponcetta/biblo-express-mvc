@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo/favicon.ico" />
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ingresá a BiBlo</title>
+    <link rel="stylesheet" href="/stylesheets/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Cabin:wght@500&display=swap" rel="stylesheet">
+    <link rel="shortcut icon" type="image/x-icon" href="/images/logo/favicon.ico" />
+    <link href="/css/all.css" rel="stylesheet">
+    <script src="/scripts/LoginScript.js" defer></script>
+</head>
+<body class="bg-biblogreen-100">
+    <div class="h-screen -mb-56">
+        <div class="mb-10">
+            <%- include('./partials/header') %>
+        </div>
+        <div class="py-8 w-full font-roboto max-w-md md:px-4 mx-auto text-xs text-gray-800">
+            <div class="text-center">
+                <a href="/products/create" class="block text-sm text-gray-800 form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300 hover:bg-biblogreen-100 tracking-widest focus:outline-none  focus:bg-biblogreen-200">NUEVO PRODUCTO</a>
+            </div>
+            <br>
+            <br>
+            <div class="text-center">
+                <a href="/products" class="block text-sm text-gray-800 form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300 hover:bg-biblogreen-100 tracking-widest focus:outline-none  focus:bg-biblogreen-200">LISTADO DE PRODUCTOS</a>
+            </div>
+            <br>
+            <br>
+            <div class="text-center">
+                <a href="/users" class="block text-sm text-gray-800 form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300 hover:bg-biblogreen-100 tracking-widest focus:outline-none  focus:bg-biblogreen-200">LISTADO DE USUARIOS</a>
+            </div>
+            <br>
+            <br>
+            <div class="text-center">
+                <a href="/users/create" class="block text-sm text-gray-800 form-input w-full border-biblogreen-200 focus:shadow-biblofocus focus:border-biblogreen-300 hover:bg-biblogreen-100 tracking-widest focus:outline-none  focus:bg-biblogreen-200">NUEVO USUARIOS</a>
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+    <%- include('./partials/footer') %> 
+</body>
+</html>

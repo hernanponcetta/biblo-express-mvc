@@ -1,0 +1,37 @@
+{
+  "name": "proyecto-ecommerce-5",
+  "version": "0.0.0",
+  "private": true,
+  "scripts": {
+    "start": "npm run build:css && nodemon ./src/bin/www",
+    "build:css": "postcss public/stylesheets/tailwind.css -o public/stylesheets/style.css"
+  },
+  "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "bcrypt": "^5.0.0",
+    "cookie-parser": "~1.4.4",
+    "debug": "~2.6.9",
+    "ejs": "~2.6.1",
+    "express": "~4.16.1",
+    "express-session": "^1.17.1",
+    "express-validator": "^6.6.1",
+    "http-errors": "~1.6.3",
+    "method-override": "^3.0.0",
+    "morgan": "~1.9.1",
+    "multer": "^1.4.2",
+    "mysql2": "^2.2.5",
+    "sequelize": "^6.3.5",
+    "tailwindcss-shadow-outline-colors": "0.0.8",
+    "typeface-open-sans": "^1.1.13"
+  },
+  "devDependencies": {
+    "@tailwindcss/custom-forms": "^0.2.1",
+    "autoprefixer": "^10.0.1",
+    "nodemon": "^2.0.4",
+    "postcss": "^8.1.1",
+    "postcss-cli": "^8.1.0",
+    "prettier": "2.1.2",
+    "tailwind-scrollbar": "^1.1.2",
+    "tailwindcss": "^1.9.1"
+  }
+}
