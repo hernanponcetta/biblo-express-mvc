@@ -17,4 +17,6 @@ Clonar el repositorio ejecutando `git clone https://github.com/hernanponcetta/bi
 
 Dentro de la carpeta del repositorio ejecutar `npm install`.
 
-Una vez completada la instalacion de los paquetes requeridos se puede iniciar el servidor ejecutando `npm start`. Se podrá ingresar al página web en (localhost:3000/).
+Una vez completada la instalacion de los paquetes requeridos se puede iniciar el servidor ejecutando `npm start`. Se podrá ingresar al página web en <http://localhost:3001>.
+
+Una copia de la base de datos se puede encontrar en la carpeta DB-Script.
