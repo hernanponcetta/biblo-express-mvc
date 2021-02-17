@@ -10,18 +10,18 @@ Biblo is an e-commerce/bookstore. The main idea was to develop a completely func
 
 ## If you want to run this code locally you will need:
 
-[Node.js](https://nodejs.org/es/).
+[Node.js](https://nodejs.org/es/)
 
-[MySQL](https://dev.mysql.com/downloads/mysql/).
+[MySQL](https://dev.mysql.com/downloads/mysql/)
 
-## Instructions:
+## Instructions
 
-First clone this repository `git clone https://github.com/hernanponcetta/biblo-express-mvc.git`.
+First clone this repository `git clone https://github.com/hernanponcetta/biblo-express-mvc.git`
 
-Change directory to `./biblo-express-mvc` and run `npm install`.
+Change directory to `./biblo-express-mvc` and run `npm install`
 
-When the installation is finished run `npm start`. Then you can acces Biblo from your browser at <http://localhost:3001>.
+When the installation is finished run `npm start`. Then you can acces Biblo from your browser at <http://localhost:3001>
 
-## Important:
+## Important
 
 You will need a copy of biblo_db running locally. You can check MySQL documentation for specific instructions. A dump of the database can be found in the repository parent directory inside `./DB-Script`.
