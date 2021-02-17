@@ -1,22 +1,27 @@
-# Desarrollo de un ecommerce utilizando el patrón de diseño MVC
+# E-commerce development using MVC design pattern
 
-## Herramientas utilizadas
+Biblo is an e-commerce/bookstore. The main idea was to develop a completely functional site to show my development skills.
+
+## Used for this project
 
 - Express
 - TailwindCSS
 - MySQL
 
-## Para ejecutar el código en forma local es necesario tener instalado los siguientes componentes
+## If you want to run this code locally you will need:
 
-Entorno de ejecución [Node.js](https://nodejs.org/es/).
-Servidor [MySQL](https://dev.mysql.com/downloads/mysql/).
+[Node.js](https://nodejs.org/es/).
 
-## Instrucciones
+[MySQL](https://dev.mysql.com/downloads/mysql/).
 
-Clonar el repositorio ejecutando `git clone https://github.com/hernanponcetta/biblo-express-mvc.git`.
+## Instructions:
 
-Dentro de la carpeta del repositorio ejecutar `npm install`.
+First clone this repository `git clone https://github.com/hernanponcetta/biblo-express-mvc.git`.
 
-Una vez completada la instalacion de los paquetes requeridos se puede iniciar el servidor ejecutando `npm start`. Se podrá ingresar al página web en <http://localhost:3001>.
+Change directory to `./biblo-express-mvc` and run `npm install`.
 
-Una copia de la base de datos se puede encontrar en la carpeta DB-Script.
+When the installation is finished run `npm start`. Then you can acces Biblo from your browser at <http://localhost:3001>.
+
+## Important:
+
+You will need a copy of biblo_db running locally. You can check MySQL documentation for specific instructions. A dump of the database can be found in the repository parent directory inside `./DB-Script`.
