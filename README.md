@@ -9,13 +9,13 @@ Project is created with:
 - MySQL
 
 ## Setup
-### You will need to install:
+You will need to install:
 
 [Node.js](https://nodejs.org/es/)
 
 [MySQL](https://dev.mysql.com/downloads/mysql/)
 
-### Then:
+Then:
 
 First clone this repository `git clone https://github.com/hernanponcetta/biblo-express-mvc.git`
 
