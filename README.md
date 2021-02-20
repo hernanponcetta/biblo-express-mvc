@@ -1,6 +1,5 @@
 # Bilblo express mvc
 
-## Info
 Biblo is a fully functional ecommerce. It was developed during Digital House Web Development Course.
 
 ## Technologies
