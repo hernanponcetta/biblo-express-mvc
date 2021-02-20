@@ -1,20 +1,22 @@
-# E-commerce development using MVC design pattern
+# Bilblo express mvc
 
-Biblo is an e-commerce/bookstore. The main idea was to develop a completely functional site to show my development skills.
+## Info
+Biblo is a fully functional ecommerce. It was developed during Digital House Web Development Course.
 
-## Used for this project
-
+## Technologies
+Project is created with:
 - Express
 - TailwindCSS
 - MySQL
 
-## If you want to run this code locally you will need:
+## Setup
+### You will need to install:
 
 [Node.js](https://nodejs.org/es/)
 
 [MySQL](https://dev.mysql.com/downloads/mysql/)
 
-## Instructions
+### Then:
 
 First clone this repository `git clone https://github.com/hernanponcetta/biblo-express-mvc.git`
 
